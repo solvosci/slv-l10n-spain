@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="0">
+    <record
+        id="l10n_es_vat_book.aeat_vat_book_map_line_p_iva"
+        model="aeat.vat.book.map.line"
+    >
+        <field name="account_group_id" ref="l10n_es.account_group_472" />
+    </record>
+</odoo>
