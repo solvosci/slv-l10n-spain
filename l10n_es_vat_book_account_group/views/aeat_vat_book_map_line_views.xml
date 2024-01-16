@@ -14,11 +14,8 @@
         />
         <field name="arch" type="xml">
             <field name="tax_account_id" position="attributes">
-                <attribute name="invisible">1</attribute>
+                <attribute name="string">Tax Account Group Restriction</attribute>
             </field>
-            <field name="tax_account_id" position="after">
-                <field name="account_group_id" />
-            </field>            
         </field>
     </record>
 </odoo>
