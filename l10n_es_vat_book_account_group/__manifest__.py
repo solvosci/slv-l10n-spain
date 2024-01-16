@@ -5,10 +5,9 @@
     "name": "Libro de IVA - Filtrado de mapeos por grupos de cuentas",
     "summary": """
         Altera el comportamiento por defecto de la generación del libro de IVA
-        para desactivar el filtro por cuenta y usar en su lugar un filtro por
-        grupos de cuentas
+        para redefinir el filtro por cuenta y usar en su lugar el grupo de la cuenta
     """,
-    "version": "14.0.1.0.0",
+    "version": "15.0.1.0.0",
     "category": "Accounting & Finance",
     "website": "https://github.com/OCA/l10n-spain",
     "author": "Solvos",
@@ -16,8 +15,5 @@
     "application": False,
     "installable": True,
     "depends": ["l10n_es_vat_book"],
-    "data": [
-        "data/aeat_vat_book_map_data.xml",
-        "views/aeat_vat_book_map_line_views.xml",
-    ],
+    "data": ["views/aeat_vat_book_map_line_views.xml"],
 }

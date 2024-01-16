@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-23 14:54+0000\n"
-"PO-Revision-Date: 2022-02-23 14:54+0000\n"
+"POT-Creation-Date: 2024-01-17 15:20+0000\n"
+"PO-Revision-Date: 2024-01-17 15:20+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,22 +16,17 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: l10n_es_vat_book_account_group
-#: model:ir.model,name:l10n_es_vat_book_account_group.model_aeat_vat_book_map_line
-msgid "AEAT Vat Book Map Line"
-msgstr "Linea Mapeo libro de IVA AEAT"
-
-#. module: l10n_es_vat_book_account_group
-#: model:ir.model.fields,field_description:l10n_es_vat_book_account_group.field_aeat_vat_book_map_line__account_group_id
-msgid "Account Group Restriction"
-msgstr "Restricción de Grupo de Cuenta"
-
-#. module: l10n_es_vat_book_account_group
 #: model:ir.model,name:l10n_es_vat_book_account_group.model_l10n_es_vat_book
 msgid "Spanish VAT book report"
-msgstr "Informe de libro de IVA"
+msgstr ""
+
+#. module: l10n_es_vat_book_account_group
+#: model_terms:ir.ui.view,arch_db:l10n_es_vat_book_account_group.aeat_vat_book_map_lines_view_tree
+msgid "Tax Account Group Restriction"
+msgstr "Restricción del grupo de cuentas de impuestos"
 
 #. module: l10n_es_vat_book_account_group
 #: code:addons/l10n_es_vat_book_account_group/models/l10n_es_vat_book.py:0
 #, python-format
-msgid "This company doesn't have VAT"
-msgstr "Esta empresa no tiene NIF"
+msgid "This partner doesn't have VAT"
+msgstr ""
