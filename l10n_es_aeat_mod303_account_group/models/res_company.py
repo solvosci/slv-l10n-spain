@@ -10,15 +10,12 @@ class ResCompany(models.Model):
         """
         Cuando es llamado desde el 303, se sutituye la búsqueda
         a partir de la plantilla de cuenta por el grupo de cuentas
-        proporcionado
+        que se deduce de dicha plantilla a través de la cuenta original
         """
-        if "use_account_group_id" in self.env.context:
-            account_group_id = self.env.context.get("use_account_group_id", False)
-            accounts = self.env["account.account"].browse([])
-            if account_group_id:
-                accounts += accounts.search(
-                    [("group_id", "=", account_group_id.id)]
-                )
-            return accounts
+        account = super().get_account_from_template(account_template)
+        if account and self.env.context.get("use_account_group_id", False):
+            return self.env["account.account"].search(
+                [("group_id", "=", account.group_id.id)]
+            )
         else:
-            return super().get_account_from_template(account_template)
+            return account

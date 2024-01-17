@@ -5,10 +5,9 @@
     "name": "AEAT modelo 303 - Filtrado de mapeos por grupos de cuentas",
     "summary": """
         Altera el comportamiento por defecto de la generación del modelo 303
-        para desactivar el filtro por cuenta y usar en su lugar un filtro por
-        grupos de cuentas
+        para redefinir el filtro por cuenta y usar en su lugar el grupo de la cuenta
     """,
-    "version": "14.0.1.0.0",
+    "version": "15.0.1.0.0",
     "category": "Accounting & Finance",
     "website": "https://github.com/OCA/l10n-spain",
     "author": "Solvos",
@@ -16,8 +15,4 @@
     "application": False,
     "installable": True,
     "depends": ["l10n_es_aeat_mod303"],
-    "data": [
-        "data/l10n_es_aeat_map_tax_line_data.xml",
-        "views/l10n_es_aeat_map_tax_line_views.xml",
-    ],
 }
