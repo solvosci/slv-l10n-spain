@@ -7,12 +7,8 @@
         <field name="model">l10n.es.aeat.map.tax.line</field>
         <field name="inherit_id" ref="l10n_es_aeat.l10n_es_aeat_map_tax_line_tree" />
         <field name="arch" type="xml">
-            <!-- 
-                TODO hacer account_id oculto/no editable si estamos editando el 303 
-                y solo hacer visible el grupo en ese mismo caso
-            -->
-            <field name="account_id" position="after">
-                <field name="account_group_id" />
+            <field name="account_id" position="attributes">
+                <attribute name="string"></attribute>
             </field>            
         </field>
     </record>
