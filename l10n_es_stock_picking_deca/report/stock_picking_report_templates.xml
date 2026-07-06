@@ -15,7 +15,7 @@
     <template id="report_delivery_document_deca_qr" inherit_id="stock.report_delivery_document">
         <xpath expr="//div[hasclass('page')]/*[1]" position="before">
             <div class="row mb-4"
-                 t-if="o.deca_is_generated and o.company_id.deca_report_id and o.company_id.deca_report_id.report_name == 'stock.report_delivery_document'">
+                 t-if="o. deca_company_enabled and o.deca_is_generated">
                 <div class="col-3 offset-9 text-center">
                     <img t-att-src="image_data_uri(o.deca_qr)"
                          style="width:120px;height:120px;"
