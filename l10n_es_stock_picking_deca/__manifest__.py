@@ -28,8 +28,8 @@ Adds the functionality needed to mark an outgoing delivery order
         'python': ['qrcode'],
     },
     'data': [
-        'security/ir.model.access.csv',
-        'wizard/stock_picking_deca_confirm_views.xml',
+        # 'security/ir.model.access.csv',
+        # 'wizard/stock_picking_deca_confirm_views.xml',
         'views/res_config_settings_views.xml',
         'views/stock_picking_views.xml',
         'report/stock_picking_report_templates.xml',
