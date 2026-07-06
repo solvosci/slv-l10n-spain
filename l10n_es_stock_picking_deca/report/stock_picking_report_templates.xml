@@ -12,7 +12,7 @@
         Si el informe estándar ha sido personalizado previamente en la
         instancia de destino, puede ser necesario ajustar el xpath.
     -->
-    <template id="report_deliveryslip_deca_qr" inherit_id="stock.report_deliveryslip">
+    <template id="report_deliveryslip_deca_qr" inherit_id="stock.report_delivery_document">
         <xpath expr="//div[hasclass('page')]/*[1]" position="before">
             <div class="row mb-4"
                  t-if="o.deca_is_deca and o.company_id.deca_report_id and o.company_id.deca_report_id.report_name == 'stock.report_deliveryslip'">
