@@ -110,6 +110,12 @@ class StockPicking(models.Model):
         is_regeneration = bool(self.deca_is_generated)
         old_attachment = self.deca_attachment_id
 
+        self.write({
+            'deca_is_generated': True,
+            'deca_generation_date': fields.Datetime.now(),
+            'deca_generated_by_id': self.env.user.id,
+        })
+
         pdf_content, _report_type = self.env['ir.actions.report'].sudo()._render_qweb_pdf(
             report.id, self.ids
         )
@@ -123,12 +129,7 @@ class StockPicking(models.Model):
             'mimetype': 'application/pdf',
         })
 
-        self.write({
-            'deca_is_generated': True,
-            'deca_attachment_id': attachment.id,
-            'deca_generation_date': fields.Datetime.now(),
-            'deca_generated_by_id': self.env.user.id,
-        })
+        self.deca_attachment_id = attachment
 
         # The previous attachment is no longer referenced by the picking,
         # so it can now be deleted without triggering the deletion guard on
