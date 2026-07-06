@@ -90,6 +90,11 @@ msgid "DeCA enabled on company"
 msgstr "DeCA activo en la empresa"
 
 #. module: l10n_es_stock_picking_deca
+#: model:ir.model.fields,field_description:l10n_es_stock_picking_deca.field_stock_picking__deca_qr
+msgid "DeCA QR code"
+msgstr "Código QR DeCA"
+
+#. module: l10n_es_stock_picking_deca
 #: model:ir.model.fields,field_description:l10n_es_stock_picking_deca.field_stock_picking_deca_confirm_wizard__picking_id
 msgid "Delivery order"
 msgstr "Albarán"
