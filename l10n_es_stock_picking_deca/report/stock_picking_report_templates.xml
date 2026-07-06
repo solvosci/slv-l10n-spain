@@ -17,9 +17,10 @@
             <div class="row mb-4"
                  t-if="o. deca_company_enabled and o.deca_is_generated">
                 <div class="col-3 offset-9 text-center">
-                    <img t-att-src="image_data_uri(o.deca_qr)"
-                         style="width:120px;height:120px;"
-                         alt="DeCA QR"/>
+                    <img
+                        t-attf-src="data:image/png;base64,{{o.deca_qr}}"
+                        style="width:120px;height:120px;"
+                        alt="DeCA QR"/>
                     <div><small>DeCA document</small></div>
                 </div>
             </div>
