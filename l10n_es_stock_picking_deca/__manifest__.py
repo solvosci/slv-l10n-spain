@@ -1,29 +1,32 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "España - DeCA en albaranes de salida",
+    'name': "Spain - DeCA on Outgoing Delivery Orders",
     'version': '17.0.1.0.0',
     'category': 'Inventory/Inventory',
-    'summary': 'Documento electrónico de Control Administrativo (DeCA) sobre albaranes de salida',
+    'summary': 'Administrative Control Document (DeCA) on outgoing delivery orders',
     'description': """
-Documento electrónico de Control Administrativo (DeCA)
-========================================================
+Administrative Control Document (DeCA)
+=======================================
 
-Añade la funcionalidad necesaria para poder marcar un albarán de salida
-(stock.picking) como Documento de Control Administrativo (DeCA):
+Adds the functionality needed to mark an outgoing delivery order
+(stock.picking) as an Administrative Control Document (DeCA):
 
-* Configuración por empresa: activación de DeCA, URL base pública e informe
-  de stock.picking a utilizar como documento DeCA.
-* Botón en el albarán para generar / regenerar el documento DeCA (PDF
-  adjunto + URL pública).
-* Controlador público (sin autenticación) para consultar el PDF DeCA a
-  partir de la URL generada.
-* Protección del adjunto asociado frente a borrado.
-* Código QR en el informe de albarán configurado como DeCA, apuntando a la
-  URL pública del documento.
+* Company configuration: enable DeCA, public base URL and stock.picking
+  report to be used as the DeCA document.
+* Button on the delivery order to generate / regenerate the DeCA document
+  (attached PDF + public URL).
+* Public controller (no authentication required) to retrieve the DeCA PDF
+  from the generated URL.
+* Protection of the linked attachment against deletion.
+* QR code on the delivery order report configured as the DeCA report,
+  pointing to the document's public URL.
 """,
     'author': 'Custom',
     'license': 'AGPL-3',
     'depends': ['stock'],
+    'external_dependencies': {
+        'python': ['qrcode'],
+    },
     'data': [
         'security/ir.model.access.csv',
         'wizard/stock_picking_deca_confirm_views.xml',

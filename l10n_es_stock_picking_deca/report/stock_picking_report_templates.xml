@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!--
-        Añade un código QR en la cabecera del informe estándar de albarán
-        de entrega ("stock.report_deliveryslip"), visible únicamente cuando:
-          - el albarán es un documento DeCA (o.deca_is_deca), y
-          - este mismo informe es el configurado a nivel de empresa como
-            informe de referencia DeCA (company.deca_report_id).
+        Adds a QR code in the header of the standard delivery slip report
+        ("stock.report_delivery_document"), visible only when:
+          - the picking is a DeCA document (o.deca_is_generated), and
+          - this same report is the one configured at company level as the
+            DeCA reference report (company.deca_report_id).
 
-        NOTA: el xpath apunta al primer elemento hijo de "div.page", que es
-        la estructura estándar de "stock.report_deliveryslip" en Odoo 17.
-        Si el informe estándar ha sido personalizado previamente en la
-        instancia de destino, puede ser necesario ajustar el xpath.
+        NOTE: the xpath targets the first child of "div.page", which is the
+        standard structure of "stock.report_delivery_document" in Odoo 17.
+        If the standard report has been customized in the target instance,
+        the xpath may need to be adjusted.
     -->
-    <template id="report_deliveryslip_deca_qr" inherit_id="stock.report_delivery_document">
+    <template id="report_delivery_document_deca_qr" inherit_id="stock.report_delivery_document">
         <xpath expr="//div[hasclass('page')]/*[1]" position="before">
             <div class="row mb-4"
-                 t-if="o.deca_is_deca and o.company_id.deca_report_id and o.company_id.deca_report_id.report_name == 'stock.report_deliveryslip'">
+                 t-if="o.deca_is_generated and o.company_id.deca_report_id and o.company_id.deca_report_id.report_name == 'stock.report_delivery_document'">
                 <div class="col-3 offset-9 text-center">
-                    <img t-att-src="'/report/barcode/?type=QR&amp;value=%s&amp;width=120&amp;height=120' % (o.deca_url or '')"
+                    <img t-att-src="image_data_uri(o._get_deca_qr_code())"
                          style="width:120px;height:120px;"
-                         alt="QR DeCA"/>
-                    <div><small>Documento DeCA</small></div>
+                         alt="DeCA QR"/>
+                    <div><small>DeCA document</small></div>
                 </div>
             </div>
         </xpath>

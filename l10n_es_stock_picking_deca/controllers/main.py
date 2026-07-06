@@ -18,7 +18,7 @@ class StockPickingDecaController(http.Controller):
     def deca_document(self, picking_id, **kwargs):
         picking = request.env['stock.picking'].sudo().browse(picking_id)
 
-        if not picking.exists() or not picking.deca_is_deca or not picking.deca_attachment_id:
+        if not picking.exists() or not picking.deca_is_generated or not picking.deca_attachment_id:
             raise Forbidden()
 
         attachment = picking.deca_attachment_id

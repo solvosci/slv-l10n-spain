@@ -8,18 +8,18 @@
 
             <xpath expr="//header" position="inside">
                 <field name="deca_company_enabled" invisible="1"/>
-                <field name="deca_is_deca" invisible="1"/>
+                <field name="deca_is_generated" invisible="1"/>
                 <button name="action_generate_deca" type="object"
-                        string="Generar documento DeCA"
+                        string="Generate DeCA document"
                         class="btn-primary"
                         invisible="not deca_company_enabled or picking_type_code != 'outgoing' or state != 'done'"/>
             </xpath>
 
             <xpath expr="//notebook" position="inside">
-                <page string="DeCA" name="deca_page" invisible="not deca_is_deca">
+                <page string="DeCA" name="deca_page" invisible="not deca_is_generated">
                     <group>
                         <group>
-                            <field name="deca_is_deca" readonly="1"/>
+                            <field name="deca_is_generated" readonly="1"/>
                             <field name="deca_url" widget="url" readonly="1"/>
                             <field name="deca_attachment_id" readonly="1"/>
                         </group>
@@ -41,8 +41,8 @@
         <field name="arch" type="xml">
             <xpath expr="//search" position="inside">
                 <filter name="filter_deca_documents"
-                        string="Documentos DeCA"
-                        domain="[('deca_is_deca', '=', True)]"/>
+                        string="DeCA documents"
+                        domain="[('deca_is_generated', '=', True)]"/>
             </xpath>
         </field>
     </record>

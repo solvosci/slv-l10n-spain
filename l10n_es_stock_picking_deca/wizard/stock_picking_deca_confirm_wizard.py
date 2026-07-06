@@ -4,11 +4,11 @@ from odoo import fields, models
 
 class StockPickingDecaConfirmWizard(models.TransientModel):
     _name = 'stock.picking.deca.confirm.wizard'
-    _description = 'Confirmación de regeneración de documento DeCA'
+    _description = 'DeCA document regeneration confirmation'
 
     picking_id = fields.Many2one(
         'stock.picking',
-        string="Albarán",
+        string="Delivery order",
         required=True,
     )
 

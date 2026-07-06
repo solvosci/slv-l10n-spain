@@ -8,21 +8,21 @@ class ResConfigSettings(models.TransientModel):
     deca_enabled = fields.Boolean(
         related='company_id.deca_enabled',
         readonly=False,
-        string="DeCA activo",
+        string="Enable DeCA",
     )
     deca_base_url = fields.Char(
         related='company_id.deca_base_url',
         readonly=False,
-        string="URL base documento DeCA",
+        string="DeCA document base URL",
     )
     deca_report_id = fields.Many2one(
         related='company_id.deca_report_id',
         readonly=False,
-        string="Informe DeCA",
+        string="DeCA report",
     )
 
     @api.onchange('deca_enabled')
     def _onchange_deca_enabled(self):
-        # Activar DeCA implica exigir la firma de los albaranes de salida.
+        # Enabling DeCA also requires signature on outgoing delivery orders.
         if self.deca_enabled:
             self.group_stock_sign_delivery = True
