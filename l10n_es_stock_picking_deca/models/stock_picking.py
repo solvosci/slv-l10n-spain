@@ -5,7 +5,7 @@ import logging
 
 import qrcode
 
-from odoo import _, fields, models
+from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
@@ -47,8 +47,10 @@ class StockPicking(models.Model):
         string="DeCA enabled on company",
     )
 
+    @api.depends("company_id.deca_enabled", "record.company_id.deca_base_url")
     def _compute_deca_data(self):
-        for record in self:
+        pick_deca = self.filtered(lambda x: x.record.company_id.deca_enabled)
+        for record in pick_deca:
             deca_url = "%s/l10n_es_stock_picking_deca/deca/%s" % (
                 record.company_id.deca_base_url.rstrip('/'), record.id
             )
@@ -56,6 +58,10 @@ class StockPicking(models.Model):
                 "deca_url": deca_url,
                 "deca_qr": record._get_deca_qr_code(deca_url),
             })
+        (self - pick_deca).update({            
+            "deca_url": False,
+            "deca_qr": False,
+        })
 
     def action_generate_deca(self):
         self.ensure_one()
