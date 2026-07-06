@@ -5,7 +5,7 @@
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="stock.res_config_settings_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//app[@name='inventory']" position="inside">
+            <xpath expr="//app[@name='stock']" position="inside">
                 <block title="DeCA" name="deca_setting_container">
                     <setting id="deca_enabled_setting"
                              help="Activa la generación de Documentos de Control Administrativo (DeCA) para los albaranes de salida. Al activarlo se exigirá también la firma de los albaranes de salida.">
