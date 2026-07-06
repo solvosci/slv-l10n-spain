@@ -47,9 +47,9 @@ class StockPicking(models.Model):
         string="DeCA enabled on company",
     )
 
-    @api.depends("company_id.deca_enabled", "record.company_id.deca_base_url")
+    @api.depends("company_id.deca_enabled", "company_id.deca_base_url")
     def _compute_deca_data(self):
-        pick_deca = self.filtered(lambda x: x.record.company_id.deca_enabled)
+        pick_deca = self.filtered(lambda x: x.company_id.deca_enabled)
         for record in pick_deca:
             deca_url = "%s/l10n_es_stock_picking_deca/deca/%s" % (
                 record.company_id.deca_base_url.rstrip('/'), record.id
