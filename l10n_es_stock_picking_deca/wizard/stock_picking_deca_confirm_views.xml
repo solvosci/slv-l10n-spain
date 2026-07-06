@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stock_picking_deca_confirm_wizard_form" model="ir.ui.view">
+        <field name="name">stock.picking.deca.confirm.wizard.form</field>
+        <field name="model">stock.picking.deca.confirm.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Regenerar documento DeCA">
+                <field name="picking_id" invisible="1"/>
+                <div class="alert alert-warning" role="alert">
+                    Ya existe un documento DeCA generado para este albarán.
+                    Si continúa, el PDF anterior se eliminará y se generará
+                    uno nuevo con la URL pública correspondiente.
+                </div>
+                <footer>
+                    <button name="action_confirm" type="object"
+                            string="Regenerar documento DeCA"
+                            class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

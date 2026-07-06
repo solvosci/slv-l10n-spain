@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_picking_form_deca" model="ir.ui.view">
+        <field name="name">stock.picking.form.inherit.deca</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//header" position="inside">
+                <field name="deca_company_enabled" invisible="1"/>
+                <field name="deca_is_deca" invisible="1"/>
+                <button name="action_generate_deca" type="object"
+                        string="Generar documento DeCA"
+                        class="btn-primary"
+                        invisible="not deca_company_enabled or picking_type_code != 'outgoing' or state != 'done'"/>
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="DeCA" name="deca_page" invisible="not deca_is_deca">
+                    <group>
+                        <group>
+                            <field name="deca_is_deca" readonly="1"/>
+                            <field name="deca_url" widget="url" readonly="1"/>
+                            <field name="deca_attachment_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="deca_generation_date" readonly="1"/>
+                            <field name="deca_generated_by_id" readonly="1"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="view_picking_internal_search_deca" model="ir.ui.view">
+        <field name="name">stock.picking.search.inherit.deca</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter name="filter_deca_documents"
+                        string="Documentos DeCA"
+                        domain="[('deca_is_deca', '=', True)]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_deca" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.deca</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="stock.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='inventory']" position="inside">
+                <block title="DeCA" name="deca_setting_container">
+                    <setting id="deca_enabled_setting"
+                             help="Activa la generación de Documentos de Control Administrativo (DeCA) para los albaranes de salida. Al activarlo se exigirá también la firma de los albaranes de salida.">
+                        <field name="deca_enabled"/>
+                        <div class="text-muted" invisible="not deca_enabled">
+                            Activar DeCA implica exigir la firma en los
+                            albaranes de salida (grupo "Firmar entregas").
+                        </div>
+                        <div class="content-group" invisible="not deca_enabled">
+                            <div class="row mt16">
+                                <label for="deca_base_url" class="col-lg-4 o_light_label"/>
+                                <field name="deca_base_url"
+                                       required="deca_enabled"
+                                       placeholder="https://odoo.micliente.com"/>
+                            </div>
+                            <div class="row mt8">
+                                <label for="deca_report_id" class="col-lg-4 o_light_label"/>
+                                <field name="deca_report_id"
+                                       required="deca_enabled"
+                                       options="{'no_create': True}"/>
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
