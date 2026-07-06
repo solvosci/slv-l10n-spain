@@ -23,7 +23,7 @@
                 <page string="DeCA" name="deca_page" invisible="not deca_is_generated">
                     <group>
                         <group>
-                            <field name="deca_is_generated" readonly="1"/>
+                            <field name="deca_is_generated" invisible="1"/>
                             <field name="deca_url" widget="url" readonly="1"/>
                             <field name="deca_attachment_id" readonly="1"/>
                         </group>
