@@ -1,4 +1,6 @@
-# -*- coding: utf-8 -*-
+# © 2026 Solvos Consultoría Informática (<http://www.solvos.es>)
+# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+
 {
     'name': "Spain - DeCA on Outgoing Delivery Orders",
     'version': '17.0.1.0.0',
@@ -28,8 +30,6 @@ Adds the functionality needed to mark an outgoing delivery order
         'python': ['qrcode'],
     },
     'data': [
-        # 'security/ir.model.access.csv',
-        # 'wizard/stock_picking_deca_confirm_views.xml',
         'views/res_config_settings_views.xml',
         'views/stock_picking_views.xml',
         'report/stock_picking_report_templates.xml',
