@@ -22,21 +22,18 @@ class StockPicking(models.Model):
         if not_outgoings:
             raise UserError(_(
                 "The DeCA document can only be generated for outgoing delivery orders.\n\n"
-                "Incorrect transfers selected: %s",
-                ", ".join(not_outgoings.mapped("name"))
-            ))
+                "Incorrect transfers selected: %s"
+            ) % ", ".join(not_outgoings.mapped("name")))
         not_done = self.filtered(lambda x: x.state != "done")
         if not_done:
             raise UserError(_(
                 "Delivery orders must be in the 'Done' state to generate the DeCA document.\n\n"
-                "Incorrect transfers selected: %s",
-                ", ".join(not_done.mapped("name"))
-            ))
-        not_signed = self.filtered(lambda x: not x.signature)
+                "Incorrect transfers selected: %s"
+            ) % ", ".join(not_done.mapped("name")))
+        not_signed = self.filtered(lambda x: not x.picking_signature)
         if not_signed:
             raise UserError(_(
                 "Delivery order must be signed before generating the DeCA "
                 "document. Please sign the delivery order first.\n\n"
-                "Incorrect transfers selected: %s",
-                ", ".join(not_signed.mapped("name"))
-            ))
+                "Incorrect transfers selected: %s"
+            ) % ", ".join(not_signed.mapped("name")))
