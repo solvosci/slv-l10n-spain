@@ -185,9 +185,7 @@ class DecaDocumentMixin(models.AbstractModel):
             'deca_generated_by_id': self.env.user.id,
         })
 
-        pdf_content, _report_type = self.env['ir.actions.report'].sudo()._render_qweb_pdf(
-            report.id, self.ids
-        )
+        pdf_content, _report_type = report.sudo().render_qweb_pdf(self.ids)
 
         attachment = self.env['ir.attachment'].sudo().create({
             'name': self._get_deca_document_name(),

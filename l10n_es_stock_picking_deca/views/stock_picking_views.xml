@@ -25,15 +25,15 @@
                 <button name="action_generate_deca" type="object"
                         string="Generate DeCA document"
                         class="btn-primary"
-                        invisible="not deca_company_enabled or picking_type_code != 'outgoing' or state != 'done' or deca_is_generated"/>
+                        attrs="{'invisible': ['|', '|', '|', ('deca_company_enabled', '=', False),('picking_type_code', '!=', 'outgoing'),('state', '!=', 'done'), ('deca_is_generated', '=', True)]}"/>
                 <button name="action_generate_deca" type="object"
                         string="Regenerate DeCA document"
                         confirm="DeCA document is already generated. Do you generate it again? Former document will be replaced"
-                        invisible="not deca_company_enabled or picking_type_code != 'outgoing' or state != 'done' or not deca_is_generated"/>
+                        attrs="{'invisible': ['|', '|', '|', ('deca_company_enabled', '=', False),('picking_type_code', '!=', 'outgoing'),('state', '!=', 'done'), ('deca_is_generated', '=', False)]}"/>
             </xpath>
 
             <xpath expr="//notebook" position="inside">
-                <page string="DeCA" name="deca_page" invisible="not deca_is_generated">
+                <page string="DeCA" name="deca_page" attrs="{'invisible': [('deca_company_enabled', '=', False)]}">
                     <group>
                         <group>
                             <field name="deca_is_generated" invisible="1"/>

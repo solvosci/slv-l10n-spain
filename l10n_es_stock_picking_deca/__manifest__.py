@@ -3,7 +3,7 @@
 
 {
     'name': "Spain - DeCA on Outgoing Delivery Orders",
-    'version': '17.0.1.0.0',
+    'version': '13.0.1.0.0',
     'category': 'Inventory/Inventory',
     'summary': 'Administrative Control Document (DeCA) on outgoing delivery orders',
     'description': """
@@ -25,10 +25,7 @@ Adds the functionality needed to mark an outgoing delivery order
 """,
     'author': 'Solvos',
     'license': 'AGPL-3',
-    'depends': ['stock'],
-    'external_dependencies': {
-        'python': ['hashlib'],
-    },
+    'depends': ['stock_picking_signature'],
     'data': [
         'views/res_config_settings_views.xml',
         'views/stock_picking_views.xml',
