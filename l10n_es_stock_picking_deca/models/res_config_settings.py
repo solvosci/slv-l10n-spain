@@ -23,9 +23,20 @@ class ResConfigSettings(models.TransientModel):
         readonly=False,
         string="DeCA report",
     )
+    deca_sign_required = fields.Boolean(
+        related='company_id.deca_sign_required',
+        readonly=False,
+        compute="_compute_deca_sign_required",
+        string="DeCA Sign required",
+    )
 
-    @api.onchange('deca_enabled')
-    def _onchange_deca_enabled(self):
-        # Enabling DeCA also requires signature on outgoing delivery orders.
-        if self.deca_enabled:
+    @api.onchange('deca_sign_required')
+    def _onchange_deca_sign_required(self):
+        if self.deca_sign_required:
             self.group_stock_sign_delivery = True
+
+    @api.depends("deca_enabled")
+    def _compute_deca_sign_required(self):
+        enabled = self.filtered(lambda x: x.deca_enabled)
+        enabled.deca_sign_required = True
+        (self - enabled).deca_sign_required = False

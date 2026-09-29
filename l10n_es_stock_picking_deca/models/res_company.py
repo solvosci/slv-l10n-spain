@@ -23,3 +23,7 @@ class ResCompany(models.Model):
         domain=[('model', '=', 'stock.picking')],
         help="stock.picking report used to generate the DeCA document.",
     )
+    deca_sign_required = fields.Boolean(
+        string="DeCA sign required",
+        help="Force signature required before generating DeCA document",
+    )
