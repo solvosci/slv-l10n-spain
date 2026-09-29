@@ -4,7 +4,7 @@ Administrativo (DeCA).
 En esta implementación se cubren las siguientes funcionalidades:
 
 * Se proporciona la generación del DeCA a partir de un albarán de entrega
-  completado y firmado cualquiera.
+  completado y, opcionalmente firmado, cualquiera.
 * Para este albarán, se genera un hash único, que será el usado en la URL
   que lo enlazará a través de un código QR.
 * El DeCA es almacenado como un documento adjunto al albarán, protegido

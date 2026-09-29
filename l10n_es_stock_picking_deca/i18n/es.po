@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-21 16:17+0000\n"
-"PO-Revision-Date: 2026-09-21 18:18+0200\n"
+"POT-Creation-Date: 2026-09-29 15:49+0000\n"
+"PO-Revision-Date: 2026-09-29 17:53+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -76,6 +76,11 @@ msgstr "QR DeCA"
 #: model:ir.model.fields,field_description:l10n_es_stock_picking_deca.field_stock_picking__deca_qr
 msgid "DeCA QR code"
 msgstr "Código QR DeCA"
+
+#. module: l10n_es_stock_picking_deca
+#: model:ir.model.fields,field_description:l10n_es_stock_picking_deca.field_res_config_settings__deca_sign_required
+msgid "DeCA Sign required"
+msgstr "Firma de DeCA requerida"
 
 #. module: l10n_es_stock_picking_deca
 #: model:ir.model.fields,field_description:l10n_es_stock_picking_deca.field_deca_document_mixin__deca_url
@@ -154,6 +159,11 @@ msgid "DeCA report"
 msgstr "Informe DeCA"
 
 #. module: l10n_es_stock_picking_deca
+#: model:ir.model.fields,field_description:l10n_es_stock_picking_deca.field_res_company__deca_sign_required
+msgid "DeCA sign required"
+msgstr "Firma de DeCA requerida"
+
+#. module: l10n_es_stock_picking_deca
 #. odoo-python
 #: code:addons/l10n_es_stock_picking_deca/models/stock_picking.py:0
 #, python-format
@@ -192,12 +202,10 @@ msgstr "Activar DeCA"
 #: model_terms:ir.ui.view,arch_db:l10n_es_stock_picking_deca.res_config_settings_view_form_deca
 msgid ""
 "Enables the generation of Administrative Control Documents (DeCA) for "
-"outgoing delivery orders. Enabling it also requires signature on outgoing "
-"delivery orders."
+"outgoing delivery orders."
 msgstr ""
-"Activa la generación de Documentos de Control Administrativo (DeCA) para "
-"los albaranes de salida. Al activarlo se exigirá también la firma de los "
-"albaranes de salida."
+"Habilita la generación del Documento Electrónico de Control Administrativo "
+"(DeCA) para órdenes de entrega."
 
 #. module: l10n_es_stock_picking_deca
 #: model:ir.model.fields,help:l10n_es_stock_picking_deca.field_res_company__deca_enabled
@@ -210,12 +218,10 @@ msgstr ""
 "los albaranes de salida de esta empresa."
 
 #. module: l10n_es_stock_picking_deca
-#: model_terms:ir.ui.view,arch_db:l10n_es_stock_picking_deca.res_config_settings_view_form_deca
-msgid ""
-"Enabling DeCA also requires signature on outgoing\n"
-"                            delivery orders (\"Sign on Delivery\" group)."
-msgstr ""
-"Habilitar DeCA activará la opción de firma para operaciones de entrega."
+#: model:ir.model.fields,help:l10n_es_stock_picking_deca.field_res_company__deca_sign_required
+#: model:ir.model.fields,help:l10n_es_stock_picking_deca.field_res_config_settings__deca_sign_required
+msgid "Force signature required before generating DeCA document"
+msgstr "Obliga a firmar antes de generar el documento DeCA"
 
 #. module: l10n_es_stock_picking_deca
 #: model_terms:ir.ui.view,arch_db:l10n_es_stock_picking_deca.view_picking_form_deca
@@ -235,7 +241,7 @@ msgstr "Fecha de generación"
 #. module: l10n_es_stock_picking_deca
 #: model_terms:ir.ui.view,arch_db:l10n_es_stock_picking_deca.view_picking_form_deca
 msgid "Hash"
-msgstr "Hash"
+msgstr ""
 
 #. module: l10n_es_stock_picking_deca
 #: model_terms:ir.ui.view,arch_db:l10n_es_stock_picking_deca.view_picking_form_deca
@@ -247,6 +253,15 @@ msgstr "Cadena para hash"
 #: model:ir.model.fields,help:l10n_es_stock_picking_deca.field_stock_picking__deca_is_generated
 msgid "Indicates that this record has a DeCA document generated."
 msgstr "Indica que este albarán tiene generado un documento DeCA."
+
+#. module: l10n_es_stock_picking_deca
+#: model_terms:ir.ui.view,arch_db:l10n_es_stock_picking_deca.res_config_settings_view_form_deca
+msgid ""
+"Makes required signing before DeCA document generation. This will enable "
+"sign option for pickings."
+msgstr ""
+"Hace obligatorio firmar antes de que se genere el documento DeCA. Activa la "
+"opción de firma para albaranes."
 
 #. module: l10n_es_stock_picking_deca
 #. odoo-python

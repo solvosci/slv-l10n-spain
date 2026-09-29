@@ -3,7 +3,7 @@
 
 {
     'name': "Spain - DeCA on Outgoing Delivery Orders",
-    'version': '17.0.1.0.0',
+    'version': '17.0.1.1.0',
     'category': 'Inventory/Inventory',
     'summary': 'Administrative Control Document (DeCA) on outgoing delivery orders',
     'description': """

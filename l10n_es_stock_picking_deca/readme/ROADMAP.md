@@ -11,8 +11,8 @@
 * La página de rechazo de acceso a una URL no válida podría ser mejorable
   (actualmente da un error 403 - Forbidden).
 * La generación del DeCA es completamente manual, pero podría ser automatizada
-  tras la firma del mismo y de acuerdo a criterios de generación (p.ej. por
-  contacto, tipo de operación de entrega, etc.).
+  tras la firma o validación del mismo y de acuerdo a criterios de generación
+  (p.ej. por contacto, tipo de operación de entrega, etc.).
 * Este módulo solo cubre órdenes de entrega. Si la empresa que lo usa tiene
   obligación de generar documentos como cargador contractual, al menos pasar
   a cubrir albaranes de entrega (y que estén incompletos) parece a priori

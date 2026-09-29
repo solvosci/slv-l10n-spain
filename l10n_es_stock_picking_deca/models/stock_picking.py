@@ -32,7 +32,9 @@ class StockPicking(models.Model):
                 "Incorrect transfers selected: %s",
                 ", ".join(not_done.mapped("name"))
             ))
-        not_signed = self.filtered(lambda x: not x.signature)
+        not_signed = self.filtered(
+            lambda x: not x.signature and x._get_deca_company().deca_sign_required
+        )
         if not_signed:
             raise UserError(_(
                 "Delivery order must be signed before generating the DeCA "
