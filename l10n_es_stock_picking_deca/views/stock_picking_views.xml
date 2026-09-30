@@ -33,7 +33,7 @@
             </xpath>
 
             <xpath expr="//notebook" position="inside">
-                <page string="DeCA" name="deca_page" attrs="{'invisible': [('deca_company_enabled', '=', False)]}">
+                <page string="DeCA" name="deca_page" attrs="{'invisible': [('deca_is_generated', '=', False)]}">
                     <group>
                         <group>
                             <field name="deca_is_generated" invisible="1"/>
