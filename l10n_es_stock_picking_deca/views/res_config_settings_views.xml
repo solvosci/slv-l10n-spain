@@ -15,7 +15,7 @@
                             <label for="deca_enabled"/>
                             <div class="text-muted">
                                 Enabling DeCA also requires signature on outgoing
-                                delivery orders ("Sign on Delivery" group).
+                                delivery orders and internal transfers ("Sign on Delivery" group).
                             </div>
                         </div>
                     </div>

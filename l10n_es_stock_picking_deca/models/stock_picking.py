@@ -18,12 +18,12 @@ class StockPicking(models.Model):
         return "DeCA_%s.pdf" % (self.name or self.id)
 
     def _check_deca_can_generate_extra(self):
-        not_outgoings = self.filtered(lambda x: x.picking_type_code != "outgoing")
-        if not_outgoings:
+        not_outgoings_internal = self.filtered(lambda x: x.picking_type_code not in ["outgoing", "internal"])
+        if not_outgoings_internal:
             raise UserError(_(
-                "The DeCA document can only be generated for outgoing delivery orders.\n\n"
+                "The DeCA document can only be generated for outgoing and internal delivery orders.\n\n"
                 "Incorrect transfers selected: %s"
-            ) % ", ".join(not_outgoings.mapped("name")))
+            ) % ", ".join(not_outgoings_internal.mapped("name")))
         not_done = self.filtered(lambda x: x.state != "done")
         if not_done:
             raise UserError(_(
