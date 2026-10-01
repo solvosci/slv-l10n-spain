@@ -10,7 +10,7 @@ class ResCompany(models.Model):
     deca_enabled = fields.Boolean(
         string="Enable DeCA",
         help="Enables the generation of Administrative Control Documents "
-             "(DeCA) for the outgoing delivery orders of this company.",
+             "(DeCA) for the outgoing delivery orders and internal transfers of this company.",
     )
     deca_base_url = fields.Char(
         string="DeCA document base URL",

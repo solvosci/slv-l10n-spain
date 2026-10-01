@@ -25,11 +25,11 @@
                 <button name="action_generate_deca" type="object"
                         string="Generate DeCA document"
                         class="btn-primary"
-                        attrs="{'invisible': ['|', '|', '|', ('deca_company_enabled', '=', False),('picking_type_code', '!=', 'outgoing'),('state', '!=', 'done'), ('deca_is_generated', '=', True)]}"/>
+                        attrs="{'invisible': ['|', '|', '|', ('deca_company_enabled', '=', False),('picking_type_code', 'not in', ['outgoing', 'internal']),('state', '!=', 'done'), ('deca_is_generated', '=', True)]}"/>
                 <button name="action_generate_deca" type="object"
                         string="Regenerate DeCA document"
                         confirm="DeCA document is already generated. Do you generate it again? Former document will be replaced"
-                        attrs="{'invisible': ['|', '|', '|', ('deca_company_enabled', '=', False),('picking_type_code', '!=', 'outgoing'),('state', '!=', 'done'), ('deca_is_generated', '=', False)]}"/>
+                        attrs="{'invisible': ['|', '|', '|', ('deca_company_enabled', '=', False),('picking_type_code', 'not in', ['outgoing', 'internal']),('state', '!=', 'done'), ('deca_is_generated', '=', False)]}"/>
             </xpath>
 
             <xpath expr="//notebook" position="inside">

@@ -3,7 +3,7 @@
 
 {
     'name': "Spain - DeCA on Outgoing Delivery Orders",
-    'version': '13.0.1.0.1',
+    'version': '13.0.1.1.0',
     'category': 'Inventory/Inventory',
     'summary': 'Administrative Control Document (DeCA) on outgoing delivery orders',
     'description': """
@@ -15,7 +15,7 @@ Adds the functionality needed to mark an outgoing delivery order
 
 * Company configuration: enable DeCA, public base URL and stock.picking
   report to be used as the DeCA document.
-* Button on the delivery order to generate / regenerate the DeCA document
+* Button on the delivery order & internal transfers to generate / regenerate the DeCA document
   (attached PDF + public URL).
 * Public controller (no authentication required) to retrieve the DeCA PDF
   from the generated URL.
